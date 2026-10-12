@@ -1,48 +1,26 @@
 <script setup>
-import { ref, computed } from 'vue';
-import ItemList from './itemlist.vue';
+import { ref } from 'vue';
+import Modal from './modal.vue';
+import ImgModal from './components/imgModal.vue';
 
-let i = 0;
-let newItem = ref('');
-let items = ref([
-  { id: i++, text: 'Piim', isDone: false },
-  { id: i++, text: 'Viin', isDone: true },
-  { id: i++, text: 'Sai', isDone: false },
-  { id: i++, text: 'Mac', isDone: true },
-]);
+let modal1Open = ref(false);
+let modal2Open = ref(false);
 
-function add() {
-  if (newItem.value.trim() !== '') {
-    items.value.push({ id: i++, text: newItem.value.trim(), isDone: false });
-  }
-  newItem.value = '';
-}
-
-let doneItems = computed(() => items.value.filter(item => item.isDone));
-let toDoItems = computed(() => items.value.filter(item => !item.isDone));
 </script>
 
 <template>
   <div class="container content mt-3">
-    <!-- Input Field and Add Button -->
-    <div class="field has-addons">
-      <div class="control is-expanded">
-        <input 
-          v-model="newItem" 
-          @keydown.enter="add" 
-          class="input" 
-          type="text" 
-          placeholder="Add new item..."
-        >
-      </div>
-      <div class="control">
-        <button @click="add" class="button is-info">Add</button>
-      </div>
-    </div>
+    <button class="button is-primary" @click="modal1Open = true">Open Modal 1</button>
+    <Modal
+      :active="modal1Open"
+      @close="modal1Open = false"
+    >
+      <div class="box">I'm in a box.</div>
+    </Modal>
 
-    <!-- Component instances for each category -->
-    <ItemList :items="items" title="All Items" />
-    <ItemList :items="doneItems" title="Done Items" />
-    <ItemList :items="toDoItems" title="ToDo Items" />
+    <button class="button is-success" @click="modal2Open = true">Open Modal 2</button>
+    <ImgModal :active="modal2Open" @close="modal2Open = false" url="https://picsum.photos/1280/960?r=2"></ImgModal>
   </div>
 </template>
+
+<style></style>
