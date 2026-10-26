@@ -1,7 +1,5 @@
 <script setup>
 defineProps(['active']);
-import Modal from './components/modal.vue';
-import ImgModal from './components/imgModal.vue';
 </script>
 <template>
     <div class="modal" :class="{ 'is-active': active }">
