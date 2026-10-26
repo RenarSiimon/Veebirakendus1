@@ -1,15 +1,20 @@
 <script setup>
-defineProps(['active']);
+defineProps({
+  active: {
+    type: Boolean,
+    default: false
+  }
+})
+
+defineEmits(['close'])
 </script>
 
 <template>
   <div class="modal" :class="{ 'is-active': active }">
     <div class="modal-background" @click="$emit('close')"></div>
     <div class="modal-content">
-        <slot></slot>
-      <!-- <p class="image is-4by3">
-        <img :src="url" alt="">
-      </p> -->
+      <!-- Siia kuvatakse sisu, mis jääb <Modal> tagide vahele -->
+      <slot></slot>
     </div>
     <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
   </div>

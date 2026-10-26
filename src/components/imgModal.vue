@@ -1,11 +1,12 @@
 <script setup>
-import modal from './modal.vue';
-defineprops(['active', 'url']);
+import Modal from './modal.vue';
+
+defineProps(['active', 'url']);
 </script>
 <template>
-<Modal :active="active">
-  <p class="image is-4by3">
-    <img :src="url" alt="">
-  </p>
-</Modal>
+    <Modal :active="active">
+        <p class="image is-4by3">
+            <img :src="url" alt="">
+        </p>
+    </Modal>
 </template>
