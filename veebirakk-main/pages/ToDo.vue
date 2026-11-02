@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import ItemList from '../components/ItemList.vue';
 
 let message = ref('');
-let newItemPriority = ref('2'); // Vaikeväärtus: Keskmine (2 = kõrge, 1 = madal jne)
+let newItemPriority = ref('2'); // Vaikeväärtus: Keskmine
 let i = 1;
 
 let items = ref([
@@ -26,7 +26,7 @@ function add(){
   newItemPriority.value = '2';
 }
 
-// Sorteerimisfunktsioon: suurem number tähendab suuremat olulisust (kõige olulisem ees)
+// Sorteerimisfunktsioon: kõige olulisem (suurem number) ees
 const sortByPriority = (a, b) => b.priority - a.priority;
 
 // Sorteerime massiivi koopiat computed omaduste sees
