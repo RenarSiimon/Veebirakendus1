@@ -1,0 +1,38 @@
+@import "bulma/css/bulma.min.css";
+
+body {
+  background-color: #649bd1;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Nuppude ja aktsentide värvid */
+.button.is-primary {
+  background-color: #4f46e5 !important; /* Peamine lillakas-sinine */
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.button.is-success {
+  background-color: #10b981 !important; /* Roheline (näiteks lisamiseks/kinnitamiseks) */
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.button.is-danger {
+  background-color: #ef4444 !important; /* Punane (kustutamiseks/tühistamiseks) */
+  color: #3e8637 !important;
+  border: none !important;
+}
+
+.button.is-info {
+  background-color: #06b6d4 !important; /* Hele türkiissinine */
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* Kaardikeste ja konteinerite taust */
+.box, .card {
+  background-color: #be2525 !important;
+  border-top: 4px solid #4f46e5 !important; /* Ülemine värviline triip */
+  border-radius: 8px !important;
+}
